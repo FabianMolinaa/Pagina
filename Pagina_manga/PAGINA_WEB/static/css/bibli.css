@@ -1,0 +1,140 @@
+/*Global*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+  font-size: 18px;
+}
+body{
+  margin: 0;
+  background-color: black;
+  color: #eee;
+  font-family: Poppins;
+  font-size: 12px;
+}
+section{
+  background:black;
+}
+/*Barra de busqueda*/
+.containerr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar {
+  width: 25%;
+  border: 1px solid #272525;
+  border-radius: 3px;
+  padding: 15px;
+  height: 8vh;
+  box-shadow: 0px 0px 3px gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.data {
+  width: 73%;
+  border-radius: 3px;
+  height: 92vh;
+  overflow-y: auto;
+}
+.searchBar {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 3px;
+  padding: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+input {
+  border: none;
+  outline: none;
+  background: none;
+}
+#root {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+
+}
+::-webkit-scrollbar {
+  display: none;
+}
+/*-------------------------------------*/
+/*HEADER*/
+.header {
+  height: 200px;
+  border-radius: 3px;
+  background-color: #272525;
+  margin: 3vh 0px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header p {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+/*-------------------------------------*/
+/*section*/
+/*CARD*/
+.card {
+  position: relative;
+  transition: all .4s;
+  width: 100%;
+  border: none;
+  background-color: black;
+}
+.card img {
+  width: 350px;
+  height: 400px;
+  transition: transform .4s;
+}
+.card:hover img {
+  transform: scale(0.9);
+}
+.title h5 {
+  color: white;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.title p {
+  color: white;
+  font-size: 14px;
+  font-weight: 200;
+}
+/*---------------------------*/
+/*FOOTER*/
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+footer a:hover {
+  color: #ff4500;
+}
+footer p:hover {
+  color: #ff4500;
+}
+/*-------------------------------------*/

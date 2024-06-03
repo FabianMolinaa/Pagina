@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: black;
+    width: 100%;
+}
+.container {
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+}
+.container img {
+    width: 300px; /* ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* esto asegura que la imagen mantenga su proporción de aspecto */
+    margin-right: 10px; /* espacio entre la imagen y el texto */
+    padding: 14px;
+}
+.title{
+    color: white;
+    background-color: rgb(53, 53, 53);
+   text-align: left;
+    margin-top: 15px;
+    padding: 1px;  
+}
+.siposis{
+    color: white;
+    padding: 1px;
+}
+.accordion {
+    max-width: 900px; /* Tamaño máximo del acordeón */
+    margin: 0 auto; /* Centrar el acordeón horizontalmente */
+    background-color: #be3b3b; /* Color de fondo del acordeón */
+    color: white; /* Color del texto */
+}
+  
+.accordion-button {
+    background-color: rgb(53, 53, 53); /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+}
+  
+.accordion-button:not(.collapsed) {
+    background-color: rgb(53, 53, 53); /* Color de fondo del botón cuando está abierto */
+    color: white;
+}
+  
+.accordion-body {
+    background-color:rgb(14, 13, 13); /* Color de fondo del cuerpo del acordeón */
+    color: white; /* Color del texto del cuerpo del acordeón */
+}
+/*FOOTER*/
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+}
+footer p {
+    margin: 0;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+footer a:hover {
+    color: #ff4500;
+}
+footer p:hover {
+    color: #ff4500;
+}
+.cap{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+}
+  /*-------------------------------------*/
+/*dimensiones*/
+@media (max-width: 767px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .container img {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+    .title,
+    .siposis {
+      text-align: center;
+    }
+}
