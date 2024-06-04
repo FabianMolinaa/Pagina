@@ -1,55 +1,55 @@
 const product = [
     {
         id: 0,
-        image: '../img/sousou-no-frieren-banner.png',
+        image: '../static/img/sousou-no-frieren-banner.png',
         title: 'Sousou no Frieren',
         link: 'vista/sousou-no-frieren.html',
     },
     {
         id: 1,
-        image: '../img/black-clover-banner.jpg',
+        image: '../static/img/black-clover-banner.jpg',
         title: 'Black Clover',
         link: 'vista/black-clover.html',
     },
     {
         id: 2,
-        image: '../img/Jujutsu-Kaisen-banner.jpg',
+        image: '../static/img/Jujutsu-Kaisen-banner.jpg',
         title: 'Jujutsu Kaisen',
         link: 'vista/jujutsu-kaisen.html',
     },
     {
         id: 3,
-        image: '../img/Akuyaku-Reijou-level-99-banner.jpg',
+        image: '../static/img/Akuyaku-Reijou-level-99-banner.jpg',
         title: 'Akuyaku Reijō Level 99',
         link: 'vista/Akuyaku-Reijou.html',
     },
     {
         id: 4,
-        image: '../img/Yofukashi-no-Uta-banner.jpg',
+        image: '../static/img/Yofukashi-no-Uta-banner.jpg',
         title: 'Yofukashi no Uta',
         link: 'vista/yofukashi.html',
     },
     {
         id: 5,
-        image: '../img/spyxfamily-banner.jpg',
+        image: '../static/img/spyxfamily-banner.jpg',
         title: 'Spy × Family',
         link: 'vista/spyxfamily.html',
     },
     {
         id: 6,
-        image: '../img/blue-lock-banner.png',
+        image: '../static/img/blue-lock-banner.png',
         title: 'Blue Lock',
         link: 'vista/blue_lock.html',
     },
     {
         id: 7,
-        image: '../img/tokyo-revengers-banner.png',
+        image: '../static/img/tokyo-revengers-banner.png',
         title: 'Tokyo Revengers',
         link: 'vista/tokyo-revengers.html',
     },
     {
         id: 8,
-        image: '../img/Chainsaw-Man-banner.jpg',
+        image: '../static/img/Chainsaw-Man-banner.jpg',
         title: 'Chainsaw Man',
         link: 'vista/chainsaw-man.html',
     },
@@ -69,7 +69,7 @@ const product = [
     
     const displayItem = (items) => {
         document.getElementById('root').innerHTML = items.map((item) => {
-            var { image,link ,title, autor, } = item;
+            var { image,link ,title, } = item;
             return (
                
                 `<section>   
