@@ -20,5 +20,4 @@ from PAGINA_WEB import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.mi_vista),
 ]
