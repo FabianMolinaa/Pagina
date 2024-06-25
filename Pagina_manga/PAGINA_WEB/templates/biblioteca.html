@@ -24,7 +24,7 @@
 <!------------------------------------Navbar------------------------------->
 <nav class="navbar navbar-expand-lg" style="background-color: #afafaf;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/XVideos_logo.svg"></a>
+    <a class="navbar-brand" href="{% url 'index' %}"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/XVideos_logo.svg"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -71,7 +71,7 @@
       <p>Repositorio de la pagina:</p>
       <a href="https://github.com/FabianMolinaa/Pagina.git"><i class='bx bxl-github'></i></a>
     </footer>
-    <script src="../static/js/bibli.js" ></script>
+    <script src="{% url 'script_js' %}" ></script>
 </body>
 
 </html>

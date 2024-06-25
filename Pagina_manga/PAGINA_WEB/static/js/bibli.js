@@ -1,15 +1,16 @@
+
 const product = [
     {
         id: 0,
-        image: '../static/img/sousou-no-frieren-banner.png',
+        image: "{% static 'img/sousou-no-frieren-banner.png'%}",
         title: 'Sousou no Frieren',
         link: 'vista/sousou-no-frieren.html',
     },
     {
         id: 1,
-        image: '../static/img/black-clover-banner.jpg',
+        image: "{% 'static/img/black-clover-banner.jpg'%}",
         title: 'Black Clover',
-        link: 'vista/black-clover.html',
+        link: "{% url 'Black_clover' %}",
     },
     {
         id: 2,
@@ -43,12 +44,6 @@ const product = [
     },
     {
         id: 7,
-        image: '../static/img/tokyo-revengers-banner.png',
-        title: 'Tokyo Revengers',
-        link: 'vista/tokyo-revengers.html',
-    },
-    {
-        id: 8,
         image: '../static/img/Chainsaw-Man-banner.jpg',
         title: 'Chainsaw Man',
         link: 'vista/chainsaw-man.html',
