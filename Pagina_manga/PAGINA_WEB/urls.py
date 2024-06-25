@@ -10,7 +10,7 @@ urlpatterns = [
     path('chainsaw_man/', views.chainsaw_man, name='chainsaw_man'),
     path('jujutsu_kaisen/', views.jujutsu_kaisen, name='jujutsu_kaisen'),
     path('sousou_no_frieren/', views.sousou, name='sousou'),
-    path('spyxfamily/', views.spy, name='spyxfamily'),
+    path('spyxfamily/', views.spy, name='spy'),
     path('yofukashi/', views.yofukashi, name='yofukashi'),
     
 ]
