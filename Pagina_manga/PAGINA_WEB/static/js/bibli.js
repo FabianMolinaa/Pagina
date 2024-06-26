@@ -43,9 +43,9 @@ const product = [
     },
     {
         id: 7,
-        image: "{% static 'img/Chainsaw-Man-banner.jpg' %}",
+        image: "{%static'img/Chainsaw-Man-banner.jpg'%}",
         title: 'Chainsaw Man',
-        link: "{% url 'chainsaw_man' %}",
+        link: "{%url'chainsaw_man'%}",
     },
 ];
 document.addEventListener("DOMContentLoaded", function() {
