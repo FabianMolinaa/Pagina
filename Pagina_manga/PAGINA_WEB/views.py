@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Genero, Usuario
+from .models import Genero, Usuario,Manga
 
 # Create your views here.
 from django.http import HttpResponse
