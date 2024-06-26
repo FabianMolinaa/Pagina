@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  {% load static %}
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
 </head>
-
 <body>
-  <main>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 vh-100 p-5 my-3 shadow-lg mx-auto">
-          {% if user != "" %}
-          <h1>Bienvenido {{ user }}</h1>
-          {% else %}
-          <h1>Bienvenido Invitado</h1>
-          {% endif%}
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde
-            minima nisi voluptatem nulla aut doloremque ea magnam rerum velit
-            sint, vitae amet quas perferendis facere molestiae aspernatur
-            dolores vero minus!
-          </p>
-          <br />
-          
+    <main>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 vh-100 p-5 my-3 shadow-lg mx-auto">
+              {% if user != "" %}
+              <h1>Bienvenido {{ user }}</h1>
+              {% else %}
+              <h1>Bienvenido Invitado</h1>
+              {% endif%}
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde
+                minima nisi voluptatem nulla aut doloremque ea magnam rerum velit
+                sint, vitae amet quas perferendis facere molestiae aspernatur
+                dolores vero minus!
+              </p>
+              <br />
+              
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </main>
- 
-
-
-
+      </main>
+</body>
 </html>
