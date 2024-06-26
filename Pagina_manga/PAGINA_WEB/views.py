@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Genero, Usuario
 
 # Create your views here.
 from django.http import HttpResponse
@@ -32,3 +33,10 @@ def spy(request):
 
 def yofukashi(request):
     return render(request,"vista/yofukashi.html")
+
+def crud(request):
+    usuarios = Usuario.objects.all()
+    context = {
+        "usuarios": usuarios,
+    }
+    return render(request, "crud.html", context)

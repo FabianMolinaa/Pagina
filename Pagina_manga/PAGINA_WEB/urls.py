@@ -12,5 +12,5 @@ urlpatterns = [
     path('sousou_no_frieren/', views.sousou, name='sousou'),
     path('spyxfamily/', views.spy, name='spy'),
     path('yofukashi/', views.yofukashi, name='yofukashi'),
-    
+    path("crud", views.crud, name="crud"),
 ]
