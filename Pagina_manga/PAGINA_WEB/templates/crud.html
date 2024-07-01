@@ -19,7 +19,8 @@
         <h1>Gestion de Mangas</h1>
         <div class="card">
           <div class="card-body">
-            <form action="{% url 'add_manga' %}" method="post">{% csrf_token %}
+            <form action="{% url 'add_manga' %}" method="POST">
+              {% csrf_token %}
               <div class="form-group py-2">
                 <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" placeholder="Titulo" 
                 minlength="6" maxlength="100" required>
@@ -57,8 +58,8 @@
                 <td>{{m.titulo}}</td>
                 <td>{{m.autor}}</td>
                 <td>{{m.descripcion}}</td>
-                <td><a href="edit_manga/{{m.titulo}}" class="btn btn-info">Editar</a></td>
-                <td><a href="{url 'del_manga' titulo=m.titulo %}" class="btn btn-danger">Eliminar</a></td>
+                <td><a href="edit_manga/{{m.titulo}}" type="button" class="btn btn-info">Editar</a></td>
+                <td><a href="{% url 'del_manga' titulo=m.titulo %}" type="button" class="btn btn-danger">Eliminar</a></td>
               </tr>
               {% endfor %}
             </tbody>

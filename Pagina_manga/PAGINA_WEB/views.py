@@ -38,39 +38,47 @@ def crud(request):
     mangas = Manga.objects.all()
     return render(request, "crud.html", {"mangas": mangas})
 
-def  add_manga(request):
+def add_manga(request):
     if request.method != "POST":  
         mangas=Manga.objects.all()
         context={
            "mangas": mangas
         }
-        return(request,"crud.html",context)
-
+        return render(request,"crud.html",context)
 
     else:
         titulo=request.POST['txtTitulo']
         autor=request.POST['txtAutor']
         descripcion=request.POST['descripcion']
 
-        mangas=Manga.objects.create(
+        manga=Manga.objects.create(
             titulo=titulo, 
             autor=autor,
             descripcion=descripcion)
-        return render(request,"crud.html")
+        manga.save()
+
+        mangas=Manga.objects.all()
+
+        context={
+           "mangas": mangas
+        }
+        return render(request,"crud.html",context)
     
 def del_manga(request,titulo):
     try:
-        mangas = Manga.objects.get(titulo=titulo)
-        mangas.delete()
+        manga = Manga.objects.get(titulo=titulo)
+        manga.delete()
 
+        mangas = Manga.objects.all()
         context = {
             "mensaje": "Registro Eliminado",
-            "usuarios": mangas,
+            "mangas": mangas,
         }
-        return redirect()
+        return render(request,"crud.html",context)
     except:
+        mangas = Manga.objects.all()
         context = {
             "mensaje": "Error, Manga no encontrado...",
-            "Manga": mangas,
+            "mangas": mangas,
         }
         return render(request, "crud.html", context)
