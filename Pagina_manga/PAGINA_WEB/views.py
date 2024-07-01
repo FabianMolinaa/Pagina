@@ -35,13 +35,16 @@ def yofukashi(request):
     return render(request,"vista/yofukashi.html")
 
 def crud(request):
-    l_Manga = Manga.objects.all()
-    return render(request, "crud.html", {"list_manga": l_Manga})
+    mangas = Manga.objects.all()
+    return render(request, "crud.html", {"mangas": mangas})
 
 def  add_manga(request):
     if request.method != "POST":  
-        
-        return(request,"crud.html")
+        mangas=Manga.objects.all()
+        context={
+           "mangas": mangas
+        }
+        return(request,"crud.html",context)
 
 
     else:
@@ -49,5 +52,25 @@ def  add_manga(request):
         autor=request.POST['txtAutor']
         descripcion=request.POST['descripcion']
 
-        manga=Manga.objects.create(titulo=titulo, autor=autor,descripcion=descripcion)
-        return redirect('/')
+        mangas=Manga.objects.create(
+            titulo=titulo, 
+            autor=autor,
+            descripcion=descripcion)
+        return render(request,"crud.html")
+    
+def del_manga(request,titulo):
+    try:
+        mangas = Manga.objects.get(titulo=titulo)
+        mangas.delete()
+
+        context = {
+            "mensaje": "Registro Eliminado",
+            "usuarios": mangas,
+        }
+        return redirect()
+    except:
+        context = {
+            "mensaje": "Error, Manga no encontrado...",
+            "Manga": mangas,
+        }
+        return render(request, "crud.html", context)

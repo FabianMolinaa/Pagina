@@ -48,14 +48,17 @@
                   <th>Titulo</th>
                   <th>Autor</th>
                   <th>Descripcion</th>
+                  <th colspan="2">opciones</th>
               </tr>
             </thead>
             <tbody>
-              {% for m in list_manga %}
+              {% for m in mangas %}
               <tr>
                 <td>{{m.titulo}}</td>
                 <td>{{m.autor}}</td>
                 <td>{{m.descripcion}}</td>
+                <td><a href="edit_manga/{{m.titulo}}" class="btn btn-info">Editar</a></td>
+                <td><a href="{url 'del_manga' titulo=m.titulo %}" class="btn btn-danger">Eliminar</a></td>
               </tr>
               {% endfor %}
             </tbody>

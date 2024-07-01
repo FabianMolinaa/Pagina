@@ -13,5 +13,6 @@ urlpatterns = [
     path('spyxfamily/', views.spy, name='spy'),
     path('yofukashi/', views.yofukashi, name='yofukashi'),
     path("crud/", views.crud, name="crud"),
-    path("add_manga/",views.add_manga,name="add_manga")
+    path("add_manga/",views.add_manga,name="add_manga"),
+    path("del_manga/<str:titulo>", views.del_manga, name="del_manga"),
 ]
