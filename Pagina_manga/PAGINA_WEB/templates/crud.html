@@ -4,31 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     {% load static %}
 </head>
 <body>
-    <main>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 vh-100 p-5 my-3 shadow-lg mx-auto">
-              {% if user != "" %}
-              <h1>Bienvenido {{ user }}</h1>
-              {% else %}
-              <h1>Bienvenido Invitado</h1>
-              <p>{{nombre}}</p>
-              {% endif%}
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde
-                minima nisi voluptatem nulla aut doloremque ea magnam rerum velit
-                sint, vitae amet quas perferendis facere molestiae aspernatur
-                dolores vero minus!
-              </p>
-              
-              <br />
-              
-            </div>
+    <div class="container py-4"><h1>Bienvenido {{user}}</h1></div>
+   
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <h1>Gestion de Mangas</h1>
+        <div class="card">
+          <div class="card-body">
+            <form action="/addManga" method="post">{% csrf_token %}
+              <div class="form-group py-2">
+                <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" placeholder="Titulo" 
+                minlength="6" maxlength="6" required>
+              </div>
+              <div class="form-group py-2">
+                <input type="text" id="txtAutor" name="txtAutor" class="form-control" placeholder="Autor" 
+                 maxlength="30" required>
+              </div>
+              <div class="form-group py-2">
+                <input type="text" id="txtDescrip" name="txtTitulo" class="form-control" placeholder="Descripcion" 
+                minlength="30" maxlength="1000" required>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-success btn-block" text-white>Guardar</button>
+              </div>
+            </form>
           </div>
         </div>
-      </main>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <h1>Listado de Mangas</h1>
+        <div class="table responsive py-2">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                  <th>Titulo</th>
+                  <th>Autor</th>
+                  <th>Descripcion</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for m in list_manga %}
+              <tr>
+                <td>{{m.titulo}}</td>
+                <td>{{m.autor}}</td>
+                <td>{{m.descripcion}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
 </body>
 </html>

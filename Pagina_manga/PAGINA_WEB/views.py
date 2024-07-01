@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import  Usuario
+from .models import   Usuario,Manga,capitulo
 
 # Create your views here.
 from django.http import HttpResponse
@@ -35,8 +35,5 @@ def yofukashi(request):
     return render(request,"vista/yofukashi.html")
 
 def crud(request):
-    usuarios = Usuario.objects.all()
-    context = {
-        "usuarios": usuarios,
-    }
-    return render(request, "crud.html", context)
+    l_Manga = Manga.objects.all()
+    return render(request, "crud.html", {"list_manga": l_Manga})
