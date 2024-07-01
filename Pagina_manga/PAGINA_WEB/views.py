@@ -38,6 +38,10 @@ def crud(request):
     mangas = Manga.objects.all()
     return render(request, "crud.html", {"mangas": mangas})
 
+def add_user(request):
+
+    return render(request,"crud.html")
+
 def add_manga(request):
     if request.method != "POST":  
         mangas=Manga.objects.all()
