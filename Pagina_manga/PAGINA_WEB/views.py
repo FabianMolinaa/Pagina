@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import   Usuario,Manga,capitulo
 
 # Create your views here.
@@ -37,3 +37,17 @@ def yofukashi(request):
 def crud(request):
     l_Manga = Manga.objects.all()
     return render(request, "crud.html", {"list_manga": l_Manga})
+
+def  add_manga(request):
+    if request.method != "POST":  
+        
+        return(request,"crud.html")
+
+
+    else:
+        titulo=request.POST['txtTitulo']
+        autor=request.POST['txtAutor']
+        descripcion=request.POST['descripcion']
+
+        manga=Manga.objects.create(titulo=titulo, autor=autor,descripcion=descripcion)
+        return redirect('/')

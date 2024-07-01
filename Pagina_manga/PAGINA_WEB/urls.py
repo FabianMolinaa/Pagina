@@ -12,5 +12,6 @@ urlpatterns = [
     path('sousou_no_frieren/', views.sousou, name='sousou'),
     path('spyxfamily/', views.spy, name='spy'),
     path('yofukashi/', views.yofukashi, name='yofukashi'),
-    path("crud", views.crud, name="crud"),
+    path("crud/", views.crud, name="crud"),
+    path("add_manga/",views.add_manga,name="add_manga")
 ]

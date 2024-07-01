@@ -19,6 +19,7 @@ class Manga(models.Model):
     
     def __str__(self):
         return str(self.titulo)
+    
 class capitulo(models.Model):
     manga = models.ForeignKey(Manga, on_delete=models.CASCADE, related_name='capitulos')
     numero_capitulo = models.IntegerField()
