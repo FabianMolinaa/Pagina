@@ -40,7 +40,6 @@ def crud(request):
     return render(request, "crud.html", {"mangas": mangas})
 
 def login(request):
-
     return render(request,"login.html")
 
 def add_manga(request):
