@@ -39,16 +39,15 @@ def yofukashi(request):
 def crud(request):
     mangas = Manga.objects.all()
     return render(request, "crud.html", {"mangas": mangas})
-
 def login(request):
     return render(request, 'login.html')
 
 def logout(request):
     logout(request)
-    return redirect('index.html')
+    return redirect(request,'index.html')
 
 def register(request):
-    return render(request,"register.html")
+    return render(request,'index.html')
 
 def add_manga(request):
     if request.method != "POST":  
