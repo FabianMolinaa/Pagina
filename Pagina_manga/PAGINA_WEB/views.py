@@ -39,6 +39,9 @@ def crud(request):
     mangas = Manga.objects.all()
     return render(request, "crud.html", {"mangas": mangas})
 
+def register(request):
+    return render(request,"register.html")
+
 def login(request):
     return render(request,"login.html")
 
