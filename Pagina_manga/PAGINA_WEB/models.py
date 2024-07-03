@@ -8,8 +8,7 @@ from django.db import models
 class Usuario(models.Model):
     user = models.CharField(primary_key=True, validators=[MinLengthValidator(6)], max_length=12)
     email = models.EmailField(unique=True, max_length=100, blank=True, null=True)
-    password = models.CharField(validators=[MinLengthValidator(8)], max_length=30)
-
+    password = models.CharField(validators=[MinLengthValidator(8)], max_length=30, null=True)
     def __str__(self):
         return str(self.user)    
     
