@@ -22,4 +22,5 @@ urlpatterns = [
     path("PAGINA_WEB/",include("PAGINA_WEB.urls")),
     path("", include("PAGINA_WEB.urls")),
     
+    
 ]

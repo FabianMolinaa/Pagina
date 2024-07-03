@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Usuario,Manga,capitulo
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
 from django.http import HttpResponse
@@ -35,16 +35,38 @@ def spy(request):
 
 def yofukashi(request):
     return render(request,"vista/yofukashi.html")
+
 @login_required
 def crud(request):
     mangas = Manga.objects.all()
     return render(request, "crud.html", {"mangas": mangas})
-def login(request):
-    return render(request, 'login.html')
 
-def logout(request):
+def login(request):
+    if request.method=="POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request,username=username,password=password)
+        if user is not None:
+            loginn(request,user)
+            usuarios = Usuario.objects.all()
+            context = {
+                "usuarios":usuarios,
+            }
+            return render(request,"index.html",context)
+        else:
+            context = {
+                "mensaje":"Usuario o contraseña incorrecta",
+            }
+            return render(request,"login.html",context)
+    else:
+        context = {
+
+        }
+        return render(request,"login.html",context)
+
+def salir(request):
     logout(request)
-    return redirect(request,'index.html')
+    return redirect("/")
 
 def register(request):
     return render(request,'index.html')
