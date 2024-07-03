@@ -40,15 +40,15 @@ def crud(request):
     mangas = Manga.objects.all()
     return render(request, "crud.html", {"mangas": mangas})
 
-def register(request):
-    return render(request,"register.html")
-
 def login(request):
     return render(request, 'login.html')
 
 def logout(request):
     logout(request)
     return redirect('index.html')
+
+def register(request):
+    return render(request,"register.html")
 
 def add_manga(request):
     if request.method != "POST":  
