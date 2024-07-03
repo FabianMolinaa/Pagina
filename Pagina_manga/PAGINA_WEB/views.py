@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
-from .models import   Usuario,Manga,capitulo
+from .models import Usuario,Manga,capitulo
 from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 from django.http import HttpResponse
@@ -43,7 +44,11 @@ def register(request):
     return render(request,"register.html")
 
 def login(request):
-    return render(request,"login.html")
+    return render(request, 'login.html')
+
+def logout(request):
+    logout(request)
+    return redirect('index.html')
 
 def add_manga(request):
     if request.method != "POST":  
