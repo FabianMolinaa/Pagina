@@ -4,7 +4,7 @@ from PAGINA_WEB import views
 urlpatterns = [
     path("", views.index, name="index"),
     path('biblioteca/', views.biblioteca, name='biblioteca'),
-    path('login/', views.login, name='login'),
+    path('conectar/', views.conectar, name='conectar'),
     path('salir/', views.salir, name='salir'),
     path('register/',views.register,name="register"),
     path('Akuyaku_Reijou/', views.Akuyaku, name='akuyaku'),

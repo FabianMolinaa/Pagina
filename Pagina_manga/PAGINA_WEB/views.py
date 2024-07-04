@@ -41,35 +41,38 @@ def crud(request):
     mangas = Manga.objects.all()
     return render(request, "crud.html", {"mangas": mangas})
 
-def login(request):
+def conectar(request):
     if request.method=="POST":
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request,username=username,password=password)
         if user is not None:
-            loginn(request,user)
+            login(request,user)
             usuarios = Usuario.objects.all()
             context = {
                 "usuarios":usuarios,
             }
-            return render(request,"index.html",context)
+            return render(request,"crud.html",context)
         else:
             context = {
                 "mensaje":"Usuario o contraseña incorrecta",
+                "design":"alert alert-danger w-50 mx-auto text-center",
             }
-            return render(request,"login.html",context)
+            return render(request,"registration/login.html",context)
     else:
         context = {
 
         }
-        return render(request,"login.html",context)
+        return render(request,"registration/login.html",context)
+
 
 def salir(request):
-    logout(request)
-    return redirect("/")
+    if request.user.is_authenticated:
+        logout(request)
+    return redirect('/')
 
 def register(request):
-    return render(request,'index.html')
+    return render(request,'registration/register.html')
 
 def add_manga(request):
     if request.method != "POST":  

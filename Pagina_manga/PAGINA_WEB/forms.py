@@ -1,6 +1,11 @@
 # forms.py
 from django import forms
+from .models import  Usuario
 
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=12, required=True, label='Nombre de usuario')
-    password = forms.CharField(widget=forms.PasswordInput, max_length=30, required=True, label='Contraseña')
+from django.forms import ModelForm
+
+
+class UsuarioForm(ModelForm):
+    class Meta:
+        model = Usuario
+        fields = "__all__"

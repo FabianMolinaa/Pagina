@@ -36,12 +36,24 @@
           <a class="nav-link" href="{% url 'biblioteca' %}">Biblioteca</a>
         </li>
         <li>
-          <a href="{% url 'login' %}">    <button>Iniciar sesion</button></a>
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class='bx bx-user' style='font-size: 30px; color:black; margin-right: 15px;'></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-item">@{{user.username}}</li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'salir' %}">Cerrar Sesion</a></li>
+              </ul>
+            </li>
+          {% else %}
+          <li>
+              <a href="{% url 'login' %}">iniciar sesion</a>
+          </li>
+          {% endif%}
         </li>
       </ul>
-      <div class="d-flex">
-        <i class='bx bx-user' style='font-size: 30px; color:black; margin-right: 15px;'></i>
-      </div>
     </div>
   </div>
 </nav>
