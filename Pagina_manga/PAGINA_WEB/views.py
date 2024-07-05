@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect
 from .models import Usuario,Manga,capitulo
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login,logout
-from .forms import UsuarioForm
+from .forms import UsuarioForm,CustomUserCreationForm
+from django.contrib.admin.views.decorators import staff_member_required
 
 # Create your views here.
 from django.http import HttpResponse
@@ -42,31 +43,19 @@ def crud(request):
     mangas = Manga.objects.all()
     return render(request, "crud.html", {"mangas": mangas})
 
-def register(request):
-    if request.method != "POST":  
-        usuarios=Usuario.objects.all()
-        context={
-           "Usuarios": Usuario
-        }
-        return render(request,"registration/register.html",context)
-
-    else:
-        user=request.POST['txtUser']
-        email=request.POST['txtEmail']
-        password=request.POST['Contraseña']
-
-        usuarios=Usuario.objects.create(
-            user=user, 
-            email=email,
-            password=password)
-        usuarios.save()
-
-        usuarios=Usuario.objects.all()
-
-        context={
-           "Usuarios": Usuario
-        }
-        return render(request,"index.html",context)
+def registro(request):
+    data ={
+        'form':CustomUserCreationForm()
+    }
+    if request.method=='POST':
+        formulario=CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user=authenticate(username=formulario.cleaned_data["username"],email=formulario.cleaned_data["email"],password=formulario.cleaned_data["password1"])
+            login(request,user)
+            return redirect(to="index")
+        data["form"]=formulario
+    return render(request,"registration/registro.html",data)
 
 def conectar(request):
     if request.method=="POST":
@@ -79,27 +68,25 @@ def conectar(request):
             context = {
                 "usuarios":usuarios,
             }
-            return redirect("crud",context)
+            return render(request,"crud.html",context)
         else:
             context = {
                 "mensaje":"Usuario o contraseña incorrecta",
                 "design":"alert alert-danger w-50 mx-auto text-center",
             }
-            return render(request,"login.html",context)
+            return render(request,"registration/login.html",context)
     else:
         context = {
 
         }
-        return render(request,"login.html",context)
-
+        return render(request,"registration/login.html",context)
 
 def salir(request):
     if request.user.is_authenticated:
         logout(request)
     return redirect('/')
 
-def register(request):
-    return render(request,'registration/register.html')
+
 
 def add_manga(request):
     if request.method != "POST":  
